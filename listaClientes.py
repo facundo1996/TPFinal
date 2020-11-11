@@ -9,6 +9,7 @@ class ListaClientes:
 		self.rc = RepositorioClientes()
 		self.lista = self.rc.get_all()
 
+
 	def nuevo_cliente_corporativo(self, nombre_empresa, nombre_contacto, telefono_contacto, telefono, mail):
 		c = ClienteCorporativo(nombre_empresa, nombre_contacto, telefono_contacto, telefono, mail)
 		c.id_cliente = self.rc.store(c)

@@ -8,8 +8,8 @@ class Menu:
         self.opciones = {
             "1": self.mostrar_clientes,
             "2": self.nuevo_cliente,
+            "3": self.borrar_cliente,
             "0": self.salir
-
         }
 
     def mostrar_menu(self):
@@ -17,6 +17,7 @@ class Menu:
 Menu del sistema:
 1. Mostrar todos los clientes
 2. Agregar Nuevo Cliente
+3. Borrar cliente
 0. Salir
 """)
 
@@ -50,7 +51,7 @@ Menu del sistema:
             apellido = input("Ingrese el apellido: ")
         tel = input("Ingrese el Telefono: ")
         mail = input("Ingrese el Mail: ")
-        
+
         if tipo in ("c", "C"):
             c = self.lista_clientes.nuevo_cliente_corporativo(nombre, contacto, tc, tel, mail)
         else:
@@ -59,6 +60,30 @@ Menu del sistema:
             print("Error al cargar el cliente.")
         else:
             print("Cliente cargado.")
+
+    def borrar_cliente(self):
+        lista = self.lista_clientes.lista
+        for id_lista in lista:
+            print(id_lista)
+            print("===========================================")
+        id_elegido = int(input("Ingrese el ID del cliente que quiere eliminar: "))
+        for id_lista in lista:
+            if id_lista.id_cliente == id_elegido:
+                cli = self.lista_clientes.rc.delete(id_lista)
+                lista.remove(id_lista)
+                print("Se elimino correctamente.")
+                break;
+
+
+
+
+
+
+
+
+        
+
+
         
 
 
