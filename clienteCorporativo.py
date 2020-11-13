@@ -11,9 +11,9 @@ class ClienteCorporativo(Cliente):
         super().__init__(telefono, mail, id_cliente)
 
     def __str__(self):
-        cadena = f"{self.id_cliente}: {self.nombre_empresa} (Cliente Corporativo)\n"
-        cadena+= f"{self.telefono} - {self.mail}\n"
-        cadena+= f"Contacto: {self.nombre_contacto} Telefono: {self.telefono_contacto}\n"
+        cadena = f"ID: {self.id_cliente} - Empresa: {self.nombre_empresa} - (Cliente Corporativo)\n"
+        cadena+= f"Tel de empresa: {self.telefono} - Mail de empresa: {self.mail}\n"
+        cadena+= f"Contacto: {self.nombre_contacto} - Telefono: {self.telefono_contacto}\n"
         return cadena
 
                  

@@ -31,20 +31,22 @@ class Menu:
 
     def mostrar_menu(self):
         print("""
-Menu del sistema:
-1. Mostrar todos los clientes
-2. Agregar Nuevo Cliente
-3. Modificar Cliente PARTICULAR
-4. Modificar Cliente CORPORATIVO
-5. Borrar cliente
-6. Mostrar Trabajos
-7. Nuevo Trabajo
-8. Finalizar Trabajo
-9. Marcar trabajo como retirado
-10. Modificar Trabajo
-11. Mostrar trabajos finalizados no retirados
-12. Eliminar Trabajo
-0. Salir
+_________________________________________________
+|Menu del sistema:                               |
+|1. Mostrar todos los clientes                   |
+|2. Agregar Nuevo Cliente                        |
+|3. Modificar Cliente PARTICULAR                 |
+|4. Modificar Cliente CORPORATIVO                |
+|5. Borrar cliente                               |
+|6. Mostrar Trabajos                             |
+|7. Nuevo Trabajo                                |
+|8. Finalizar Trabajo                            |
+|9. Marcar trabajo como retirado                 |
+|10. Modificar Trabajo                           |
+|11. Mostrar trabajos finalizados no retirados   |
+|12. Eliminar Trabajo                            |
+|0. Salir                                        |
+|________________________________________________|
 """)
 
     def ejecutar(self):
@@ -62,7 +64,9 @@ Menu del sistema:
     def mostrar_clientes(self, lista = None):
         if lista == None:
             lista = self.lista_clientes.lista
+        print("Clientes: ")
         for cliente in lista:
+            print("===========================================")
             print(cliente)
             print("===========================================")
 
@@ -87,7 +91,7 @@ Menu del sistema:
         if c is None:
             print("Error al cargar el cliente.")
         else:
-            print("Cliente cargado.")
+            print("Cliente cargado con exito.")
 
 
     def modificar_particular(self):
@@ -105,18 +109,22 @@ Menu del sistema:
         if opcion == 1:
             nuevo_nombre = input("Ingrese el nuevo NOMBRE:")
             obj_cliente.nombre = nuevo_nombre
+            print("Nombre cambiado con exito.")
             
         elif opcion == 2:
             nuevo_apellido = input("Ingrese el nuevo APELLIDO: ")
             obj_cliente.apellido = nuevo_apellido
+            print("Apellido cambiado con exito.")
             
         elif opcion == 3:
             nuevo_telefono = input("Ingrese el nuevo TELEFONO: ")
             obj_cliente.telefono = nuevo_telefono
+            print("Telefono cambiado con exito.")
             
         elif opcion == 4:
             nuevo_mail = input("Ingrese un nuevo MAIL: ")
             obj_cliente.mail = nuevo_mail
+            print("Mail cambiado con exito.")
         elif opcion == 0:
             return
         self.rc.update(obj_cliente)
@@ -138,22 +146,27 @@ Menu del sistema:
         if opcion == 1:
             nuevo_nombre_empresa = input("Ingrese el nuevo NOMBRE DE LA EMPRESA:")
             obj_cliente.nombre_empresa = nuevo_nombre_empresa
+            print("Nombre de empresa cambiado con exito.")
  
         elif opcion == 2:
             nuevo_nombre_contacto = input("Ingrese el nuevo NOMBRE DE CONTACTO:")
             obj_cliente.nombre_contacto = nuevo_nombre_contacto
+            print("Nombre de contacto cambiado con exito.")
 
         elif opcion == 3:
             nuevo_telefono_contacto = input("Ingrese el nuevo TELEFONO DE CONTACTO: ")
             obj_cliente.telefono_contacto = nuevo_telefono_contacto
+            print("Telefono de contacto cambiado con exito.")
             
         elif opcion == 4:
             nuevo_telefono = input("Ingrese el nuevo TELEFONO: ")
             obj_cliente.telefono = nuevo_telefono
+            print("Telefono cambiado con exito.")
             
         elif opcion == 5:
             nuevo_mail = input("Ingrese un nuevo MAIL: ")
             obj_cliente.mail = nuevo_mail
+            print("Mail cambiado con exito.")
 
         elif opcion == 0:
             return
@@ -167,8 +180,9 @@ Menu del sistema:
     def borrar_cliente(self):
         lista = self.lista_clientes.lista
         for id_lista in lista:
+            print("==================================================================")
             print(id_lista)
-            print("===========================================")
+            print("==================================================================")
         id_elegido = int(input("Ingrese el ID del cliente que quiere eliminar: "))
         for id_lista in lista:
             if id_lista.id_cliente == id_elegido:
@@ -182,15 +196,16 @@ Menu del sistema:
         if lista == None:
             lista = self.lista_trabajo.lista
         for trabajo in lista:
-            print("===========================================")
+            print("====================================================")
             print("Cliente: ")
             print(trabajo.cliente)
+            print("Trabajo: ")
             print("ID: ", trabajo.id_trabajo)
             print("Fecha de entrega: ", trabajo.fecha_entrega_propuesta)
             print("Fecha de entrega real: ", trabajo.fecha_entrega_real)
             print("Descripcion: ", trabajo.descripcion)
             print("Retirado: ", trabajo.retirado)
-            print("===========================================")
+            print("====================================================")
 
 
     def nuevo_trabajo(self):
